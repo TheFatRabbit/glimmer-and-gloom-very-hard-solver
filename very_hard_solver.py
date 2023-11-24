@@ -14,14 +14,6 @@ config = json.load(open("config.json"))
 screen_width = config["screen_bbox"][2] - config["screen_bbox"][0]
 screen_height = config["screen_bbox"][3] - config["screen_bbox"][1]
 
-# CHANGE PROPORTIONS!!!
-
-# [700, 380, 1400, 980] SCREEN (700, 600)
-# top left point (920, 486)
-# top left point diag (945, 471)
-# top left point vert (920, 517)
-# top right point (1186, 486)
-
 top_left_point = (220/700 * screen_width + config["screen_bbox"][0], 106/600 * screen_height + config["screen_bbox"][1])
 top_left_point_diagonal = (246/700 * screen_width + config["screen_bbox"][0], 91/600 * screen_height + config["screen_bbox"][1])
 top_left_point_vertical = (220/700 * screen_width + config["screen_bbox"][0], 138/600 * screen_height + config["screen_bbox"][1])
