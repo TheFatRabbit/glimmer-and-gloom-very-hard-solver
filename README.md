@@ -31,3 +31,6 @@ You should now be ready to set up the `config.json` file
 
 To run the program without the command prompt, run `very_hard_solver.pyw`. It will terminate when you close the gui.
 If you encounter any problems, create an issue.
+
+# Personalizing
+- Because board scaling may be different on each device, you may need to change the pixel locations slightly in order to account for such differences. The easiest way to do this is by temporarily commenting out line 265 (change the line's contents from `if pixel:` to `# if pixel:`) in order to outline all pixels regardless of whether or not they need to be clicked. Then, adjust the proportions on lines 17-20 as needed. Once the proportions are to your liking, uncomment line 265.
