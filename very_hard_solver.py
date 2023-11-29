@@ -209,6 +209,12 @@ def propagate():
         if val == 1:
             simulate_click(coords[i][0], coords[i][1])
 
+def find_image_without_error(image_location, image, confidence):
+    try:
+        return pyautogui.locate(image_location, image, confidence=confidence)
+    except pyautogui.ImageNotFoundException:
+        return None
+
 def solve_board():
     global board_strings, click_list
     board_strings = [
@@ -238,9 +244,9 @@ def solve_board():
     for i, row in enumerate(board_bounds):
         for j, pixel in enumerate(board_bounds[i]):
             image = ImageGrab.grab(board_bounds[i][j], all_screens=True)
-            if pyautogui.locate(os.path.join(dirname, "glimmer.png"), image, confidence=config["confidence"]):
+            if find_image_without_error(os.path.join(dirname, "glimmer.png"), image, confidence=config["confidence"]):
                 board_strings[i][j] = "X"
-            elif pyautogui.locate(os.path.join(dirname, "gloom.png"), image, confidence=config["confidence"]):
+            elif find_image_without_error(os.path.join(dirname, "gloom.png"), image, confidence=config["confidence"]):
                 board_strings[i][j] = "O"
             else:
                 print(f"Failed to find pixel ({i}, {j})")
