@@ -1,7 +1,7 @@
 import json
 import pyautogui
 import tkinter
-from PIL import Image, ImageDraw, ImageGrab, ImageTk
+from PIL import Image, ImageGrab, ImageTk
 import cv2
 import numpy
 import keyboard
@@ -14,10 +14,10 @@ config = json.load(open("config.json"))
 screen_width = config["screen_bbox"][2] - config["screen_bbox"][0]
 screen_height = config["screen_bbox"][3] - config["screen_bbox"][1]
 
-top_left_point = (220/700 * screen_width + config["screen_bbox"][0], 106/600 * screen_height + config["screen_bbox"][1])
-top_left_point_diagonal = (246/700 * screen_width + config["screen_bbox"][0], 91/600 * screen_height + config["screen_bbox"][1])
-top_left_point_vertical = (220/700 * screen_width + config["screen_bbox"][0], 138/600 * screen_height + config["screen_bbox"][1])
-top_right_point = (486/700 * screen_width + config["screen_bbox"][0], 126/600 * screen_height + config["screen_bbox"][1])
+top_left_point = (config["numerators"][0][0]/700 * screen_width + config["screen_bbox"][0], config["numerators"][0][1]/600 * screen_height + config["screen_bbox"][1])
+top_left_point_diagonal = (config["numerators"][1][0]/700 * screen_width + config["screen_bbox"][0], config["numerators"][1][1]/600 * screen_height + config["screen_bbox"][1])
+top_left_point_vertical = (config["numerators"][2][0]/700 * screen_width + config["screen_bbox"][0], config["numerators"][2][1]/600 * screen_height + config["screen_bbox"][1])
+top_right_point = (config["numerators"][3][0]/700 * screen_width + config["screen_bbox"][0], config["numerators"][3][1]/600 * screen_height + config["screen_bbox"][1])
 
 pixel_width = (top_right_point[0] - top_left_point[0]) / 5
 pixel_height = (top_left_point_vertical[1] - top_left_point[1]) + 2 * (top_left_point[1] - top_left_point_diagonal[1])
@@ -237,7 +237,7 @@ def solve_board():
 
     for i, row in enumerate(board_bounds):
         for j, pixel in enumerate(board_bounds[i]):
-            image = ImageGrab.grab(board_bounds[i][j])
+            image = ImageGrab.grab(board_bounds[i][j], all_screens=True)
             if pyautogui.locate(os.path.join(dirname, "glimmer.png"), image, confidence=config["confidence"]):
                 board_strings[i][j] = "X"
             elif pyautogui.locate(os.path.join(dirname, "gloom.png"), image, confidence=config["confidence"]):
@@ -256,7 +256,7 @@ def solve_board():
     print("--------------")
     print_click_list()
     
-    board_image = ImageGrab.grab(bbox=board_bbox)
+    board_image = ImageGrab.grab(bbox=board_bbox, all_screens=True)
 
     board_image = cv2.cvtColor(numpy.array(board_image), cv2.COLOR_RGB2BGR)
 

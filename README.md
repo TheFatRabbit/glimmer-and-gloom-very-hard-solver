@@ -32,5 +32,14 @@ You should now be ready to set up the `config.json` file
 To run the program without the command prompt, run `very_hard_solver.pyw`. It will terminate when you close the gui.
 If you encounter any problems, create an issue.
 
-# Personalizing
-- Because board scaling may be different on each device, you may need to change the pixel locations slightly in order to account for such differences. The easiest way to do this is by temporarily commenting out line 265 (change the line's contents from `if pixel:` to `# if pixel:`) in order to outline all pixels regardless of whether or not they need to be clicked. Then, adjust the proportions on lines 17-20 as needed. Once the proportions are to your liking, uncomment line 265.  If the proportions of your game are vastly different from mine, smaller images in addition to the above modifications may lead to more reliable detection.
+# Personalizing & Troubleshooting
+- Because board scaling may be different on each device, you may need to change the pixel locations slightly in order to account for such differences. The easiest way to do this is by temporarily commenting out line 265 (change the line's contents from `if pixel:` to `# if pixel:`) in order to outline all pixels regardless of whether or not they need to be clicked. Then, adjust the `numerators` values in `config.json` as needed. These are ratios between specific points (see figure below) on the game board and the top left corner of Glimmer and Gloom, calculated from 0-700 on the x axis and 0-600 on the y axis (from the computer on which this program was developed). Often, by observing the error buildup of the location of each rectangle placed on the board, you can make the adjustments necessary to normalize the tool for your setup without measuring each value anew (but in extreme cases this may still need to be done). Once the proportions are to your liking, uncomment line 265.  If the proportions of your game are vastly different from mine, smaller images in addition to the above modifications may lead to more reliable detection.
+```
+"numerators": [
+    [x1, y1],
+    [x2, y2],
+    [x3, y3],
+    [x4, y4]
+]
+```
+<p align="center"><img height="300" src="https://i.imgur.com/JdhLUYu.png"></p>
