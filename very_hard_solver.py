@@ -244,9 +244,9 @@ def solve_board():
     for i, row in enumerate(board_bounds):
         for j, pixel in enumerate(board_bounds[i]):
             image = ImageGrab.grab(board_bounds[i][j], all_screens=True)
-            if find_image_without_error(os.path.join(dirname, "glimmer.png"), image, confidence=config["confidence"]):
+            if find_image_without_error(os.path.join(dirname, "glimmer.png"), image, config["confidence"]):
                 board_strings[i][j] = "X"
-            elif find_image_without_error(os.path.join(dirname, "gloom.png"), image, confidence=config["confidence"]):
+            elif find_image_without_error(os.path.join(dirname, "gloom.png"), image, config["confidence"]):
                 board_strings[i][j] = "O"
             else:
                 print(f"Failed to find pixel ({i}, {j})")
