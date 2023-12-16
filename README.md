@@ -9,6 +9,7 @@ Upon pressing a button or a customizable hotkey, the solver will search specific
 
 # Setup
 Clone this repository. See this link if you need help: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository
+You may need to install Git if you have not previously: https://git-scm.com/downloads
 
 # Requirements
 - Python (https://www.python.org/downloads/)
