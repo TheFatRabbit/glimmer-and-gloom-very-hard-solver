@@ -3,6 +3,8 @@ A solver for the Very Hard difficulty of the Glimmer and Gloom minigame on Fligh
 
 Upon pressing a button or a customizable hotkey, the solver will search specific bounds for occurrences of both glimmer and gloom tiles and calculate the clicks required to solve the board from its curret state. The program will then overlay an indicator onto all tiles that need to be clicked in order to solve the board.
 
+<p align="center"><img height="300" src="https://i.imgur.com/Lc6Akm1.png"></p>
+
 ---
 
 # Setup
