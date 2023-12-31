@@ -22,6 +22,7 @@ You should now be ready to set up the `config.json` file
 # Config
 - In `config.json` set the following:
     - Preferred hotkey (must be a valid hotkey in the `keyboard` package)
+    - If you wish for Light to win instead of Shadow, change `winner` from `gloom` to `glimmer`
     - Confidence: a value on the interval `[0, 1]` that states how close your screenshot must be to the detected tiles in order for the program to detect the board state
     - Screen bounding box in the form (x<sub>1</sub>, y<sub>1</sub>, x<sub>2</sub>, y<sub>2</sub>) following the image below
         - I suggest using MPos (https://sourceforge.net/projects/mpos/) to find your mouse position
