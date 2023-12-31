@@ -247,9 +247,9 @@ def solve_board():
         for j, pixel in enumerate(board_bounds[i]):
             image = game_image.crop(board_bounds[i][j])
             if find_image_without_error(os.path.join(dirname, "glimmer.png"), image, config["confidence"]):
-                board_strings[i][j] = "X"
+                board_strings[i][j] = "X" if config["winner"] == "gloom" else "O"
             elif find_image_without_error(os.path.join(dirname, "gloom.png"), image, config["confidence"]):
-                board_strings[i][j] = "O"
+                board_strings[i][j] = "O" if config["winner"] == "gloom" else "X"
             else:
                 print(f"Failed to find pixel ({i}, {j})")
 
