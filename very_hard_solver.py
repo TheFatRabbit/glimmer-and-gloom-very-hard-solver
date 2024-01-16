@@ -66,11 +66,13 @@ def print_click_list():
         print()
 
 def toggle_string(i, j):
-    if i < 0 or j < 0:
-        raise IndexError("list index out of range (negative index)")
-
     global board_strings
-    board_strings[i][j] = "X" if board_strings[i][j] == "O" else "O"
+    try:
+        if i < 0 or j < 0:
+            raise IndexError("list index out of range (negative index)")
+        board_strings[i][j] = "X" if board_strings[i][j] == "O" else "O"
+    except IndexError:
+        pass
 
 def simulate_click(i, j):
     try:
@@ -82,80 +84,26 @@ def simulate_click(i, j):
     toggle_string(i, j)
 
     if i < 4:
-        try:
-            toggle_string(i, j+1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i+1, j+1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i+1, j)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i, j-1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i-1, j-1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i-1, j)
-        except IndexError:
-            pass
+        toggle_string(i, j+1)
+        toggle_string(i+1, j+1)
+        toggle_string(i+1, j)
+        toggle_string(i, j-1)
+        toggle_string(i-1, j-1)
+        toggle_string(i-1, j)
     elif i == 4:
-        try:
-            toggle_string(i, j+1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i+1, j)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i+1, j-1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i, j-1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i-1, j-1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i-1, j)
-        except IndexError:
-            pass
+        toggle_string(i, j+1)
+        toggle_string(i+1, j)
+        toggle_string(i+1, j-1)
+        toggle_string(i, j-1)
+        toggle_string(i-1, j-1)
+        toggle_string(i-1, j)
     elif i > 4:
-        try:
-            toggle_string(i, j+1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i+1, j)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i+1, j-1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i, j-1)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i-1, j)
-        except IndexError:
-            pass
-        try:
-            toggle_string(i-1, j+1)
-        except IndexError:
-            pass
+        toggle_string(i, j+1)
+        toggle_string(i+1, j)
+        toggle_string(i+1, j-1)
+        toggle_string(i, j-1)
+        toggle_string(i-1, j)
+        toggle_string(i-1, j+1)
 
 def bring_down_tiles():
     for i, row in enumerate(board_strings):
