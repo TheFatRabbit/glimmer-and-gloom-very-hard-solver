@@ -218,7 +218,7 @@ def solve_board():
 
     for i, row in enumerate(click_list):
         for j, pixel in enumerate(row):
-            if pixel:
+            if pixel and ((j == 0 and i < 5) or (i == 0)):
                 point1 = (board_bounds[i][j][0] + config["screen_bbox"][0] - board_bbox[0] + int(pixel_width/3.6), board_bounds[i][j][1] + config["screen_bbox"][1] - board_bbox[1] + int(y_offset))
                 point2 = (board_bounds[i][j][2] + config["screen_bbox"][0] - board_bbox[0] - int(pixel_width/3.6), board_bounds[i][j][3] + config["screen_bbox"][1] - board_bbox[1] - int(y_offset))
                 board_image = cv2.rectangle(board_image, point1, point2, (0, 0, 255), 4)
