@@ -1,9 +1,12 @@
 # Glimmer and Gloom Very Hard Solver
 A solver for the Very Hard difficulty of the Glimmer and Gloom minigame on Flight Rising
 
-Upon pressing a button or a customizable hotkey, the solver will search specific bounds for occurrences of both glimmer and gloom tiles and calculate the clicks required to solve the board from its curret state. The program will then overlay an indicator onto all tiles that need to be clicked in order to solve the board.
+Upon pressing a button or a customizable hotkey, the solver will search specific bounds for occurrences of both glimmer and gloom tiles and calculate the clicks required to solve the board from its curret state. The program will then overlay an indicator onto the top and top left rows of tiles that need to be clicked in order to solve the board. After clicking the indicated tiles, bring down the rest (as seen in the following gif) to complete the puzzle.
 
-<p align="center"><img height="300" src="https://i.imgur.com/Lc6Akm1.png"></p>
+<p align="center"><img height="150" src="https://i.imgur.com/l4dOUBt.gif"></p>
+
+<b>Working program:</b>
+<p align="center"><img height="300" src="https://i.imgur.com/KWtLSaq.png"></p>
 
 ---
 
@@ -46,4 +49,4 @@ If you encounter any problems, create an issue.
     [x4, y4]
 ]
 ```
-<p align="center"><img height="300" src="https://i.imgur.com/JdhLUYu.png"></p>
+<p align="center"><img height="200" src="https://i.imgur.com/JdhLUYu.png"></p>
