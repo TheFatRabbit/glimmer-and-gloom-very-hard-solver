@@ -1,3 +1,5 @@
+This project is no longer maintained, and has been absorbed into FlightRisingUtils, found [here]([url](https://github.com/TheFatRabbit/FlightRisingUtils))
+
 # Glimmer and Gloom Very Hard Solver
 A solver for the Very Hard difficulty of the Glimmer and Gloom minigame on Flight Rising
 
